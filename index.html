@@ -658,52 +658,75 @@ Utbildning av hästar med hållbar utveckling och framtida prestation i fokus.
 
 </div>
 
-<form>
+<form action="https://api.web3forms.com/submit" method="POST">
 
-<input type="text" placeholder="Namn">
+    <input type="hidden"
+           name="access_key"
+           value="3265602e-a8ab-419d-ae82-3967f861ce07">
 
-<input type="tel" placeholder="Telefon">
+    <input type="hidden"
+           name="subject"
+           value="Ny intresseanmälan - RingstadStallarna">
 
-<input type="email" placeholder="E-post">
+    <input type="hidden"
+           name="from_name"
+           value="RingstadStallarna">
 
-<input type="text" placeholder="Hästens ålder">
+    <input type="text"
+           name="namn"
+           placeholder="Namn"
+           required>
 
-<select>
-    <option selected disabled>Kön</option>
-    <option>Hingst</option>
-    <option>Valack</option>
-    <option>Sto</option>
-</select>
+    <input type="tel"
+           name="telefon"
+           placeholder="Telefon"
+           required>
 
-<select>
-    <option selected disabled>Önskad inflyttning</option>
-    <option>Omgående</option>
-    <option>Inom 1 månad</option>
-    <option>Inom 2 månader</option>
-    <option>Inom 3 månader</option>
-    <option>Inom 6 månader</option>
-    <option>Vet ej ännu</option>
-</select>
+    <input type="email"
+           name="epost"
+           placeholder="E-post"
+           required>
 
-<select>
-    <option selected disabled>Välj disciplin</option>
-    <option>Dressyr</option>
-    <option>Hoppning</option>
-    <option>Fälttävlan</option>
-    <option>Islandshäst</option>
-    <option>Western</option>
-    <option>Hobbyridning</option>
-    <option>Annat</option>
-</select>
+    <input type="text"
+           name="hastens_alder"
+           placeholder="Hästens ålder">
 
-<textarea placeholder="Berätta gärna lite om dig och din häst"></textarea>
+    <select name="kon" required>
+        <option value="" selected disabled>Kön</option>
+        <option>Hingst</option>
+        <option>Valack</option>
+        <option>Sto</option>
+    </select>
 
-<button type="submit">
-Skicka Intresseanmälan
-</button>
+    <select name="inflyttning" required>
+        <option value="" selected disabled>Önskad inflyttning</option>
+        <option>Omgående</option>
+        <option>Inom 1 månad</option>
+        <option>Inom 2 månader</option>
+        <option>Inom 3 månader</option>
+        <option>Inom 6 månader</option>
+        <option>Vet ej ännu</option>
+    </select>
+
+    <select name="disciplin" required>
+        <option value="" selected disabled>Välj disciplin</option>
+        <option>Dressyr</option>
+        <option>Hoppning</option>
+        <option>Fälttävlan</option>
+        <option>Islandshäst</option>
+        <option>Western</option>
+        <option>Hobbyridning</option>
+        <option>Annat</option>
+    </select>
+
+    <textarea name="meddelande"
+              placeholder="Berätta gärna lite om dig och din häst"></textarea>
+
+    <button type="submit">
+        Skicka förfrågan
+    </button>
 
 </form>
-
 </div>
 
 </div>
