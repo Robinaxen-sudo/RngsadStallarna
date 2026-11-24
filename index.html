@@ -802,13 +802,80 @@ Inackordering • Träning • Utbildning
 
 <script>
 
-const supabaseUrl = 'DIN_SUPABASE_URL';
-const supabaseKey = 'DIN_ANON_KEY';
+const supabaseUrl =
+'https://demanqazbewubywncgst.supabase.co';
 
-const supabase = window.supabase.createClient(
-  supabaseUrl,
-  supabaseKey
+const supabaseKey =
+'sb_publishable_asApF37M5MQuVdovd5aKyw_X_lOPqMT';
+
+const supabase =
+window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
 );
+
+document
+.getElementById('bookingForm')
+.addEventListener('submit', async (e) => {
+
+    e.preventDefault();
+
+    const form = e.target;
+
+    const booking = {
+
+        datum: form.datum.value,
+        tid: form.tid.value,
+        ryttartyp: form.ryttartyp.value,
+        namn: form.namn.value,
+        telefon: form.telefon.value,
+        epost: form.epost.value,
+        meddelande: form.meddelande.value
+
+    };
+
+    const { data: existing } =
+    await supabase
+    .from('ridhus_bokningar')
+    .select('*')
+    .eq('datum', booking.datum)
+    .eq('tid', booking.tid);
+
+    if(existing.length > 0){
+
+        alert(
+          'Tiden är redan bokad.'
+        );
+
+        return;
+    }
+
+    const { error } =
+    await supabase
+    .from('ridhus_bokningar')
+    .insert([booking]);
+
+    if(error){
+
+        alert(
+          'Ett fel uppstod.'
+        );
+
+        console.error(error);
+
+        return;
+    }
+
+    alert(
+      'Bokningen är registrerad!'
+    );
+
+    form.reset();
+
+});
+
+</script>
+
 
 </script>
 
