@@ -269,41 +269,59 @@ Boka ridhuset i pass om 60 minuter
 
 <form id="bookingForm">
 
-<select required>
-<option value="">Kategori</option>
-<option>Inackorderad</option>
-<option>Extern ryttare</option>
-</select>
+    <select name="ryttartyp" required>
+        <option value="" selected disabled>Välj kategori</option>
+        <option>Inackorderad</option>
+        <option>Extern ryttare</option>
+    </select>
 
-<input type="text" placeholder="Namn">
+    <input
+        type="text"
+        name="namn"
+        placeholder="Namn"
+        required>
 
-<input type="tel" placeholder="Telefon">
+    <input
+        type="tel"
+        name="telefon"
+        placeholder="Telefon"
+        required>
 
-<input type="email" placeholder="E-post">
+    <input
+        type="email"
+        name="epost"
+        placeholder="E-post"
+        required>
 
-<select name="ryttartyp">
+    <input
+        type="date"
+        name="datum"
+        required>
 
-<input type="date" name="datum">
+    <select name="tid" required>
+        <option value="" selected disabled>Välj tid</option>
+        <option>08:00 - 09:00</option>
+        <option>09:00 - 10:00</option>
+        <option>10:00 - 11:00</option>
+        <option>11:00 - 12:00</option>
+        <option>12:00 - 13:00</option>
+        <option>13:00 - 14:00</option>
+        <option>14:00 - 15:00</option>
+        <option>15:00 - 16:00</option>
+        <option>16:00 - 17:00</option>
+        <option>17:00 - 18:00</option>
+        <option>18:00 - 19:00</option>
+        <option>19:00 - 20:00</option>
+        <option>20:00 - 21:00</option>
+    </select>
 
-<select name="tid">
+    <textarea
+        name="meddelande"
+        placeholder="Övrig information (frivilligt)"></textarea>
 
-<textarea name="meddelande"></textarea>
-
-
-<select required>
-<option value="">Välj tid</option>
-<option>08:00 - 09:00</option>
-<option>09:00 - 10:00</option>
-<option>10:00 - 11:00</option>
-</select>
-
-<textarea placeholder="Övrig information"></textarea>
-
-<button type="submit">
-
-Skicka bokningsförfrågan
-
-</button>
+    <button type="submit">
+        Skicka bokningsförfrågan
+    </button>
 
 </form>
 
