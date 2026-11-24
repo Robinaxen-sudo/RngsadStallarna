@@ -267,7 +267,7 @@ Boka ridhuset i pass om 60 minuter
 
 <h2>Boka tid</h2>
 
-<form>
+<form id="bookingForm">
 
 <select required>
 <option value="">Kategori</option>
@@ -280,6 +280,15 @@ Boka ridhuset i pass om 60 minuter
 <input type="tel" placeholder="Telefon">
 
 <input type="email" placeholder="E-post">
+
+<select name="ryttartyp">
+
+<input type="date" name="datum">
+
+<select name="tid">
+
+<textarea name="meddelande"></textarea>
+
 
 <select required>
 <option value="">Välj tid</option>
@@ -313,9 +322,7 @@ Inackordering • Träning • Utbildning
 </div>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">\</script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">\</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
@@ -331,7 +338,79 @@ window.supabase.createClient(
   supabaseKey
 );
 
-console.log("Supabase ansluten");
+document.addEventListener('DOMContentLoaded', () => {
+
+  const form = document.getElementById('bookingForm');
+
+  if (!form) {
+    console.error('bookingForm hittades inte');
+    return;
+  }
+
+  form.addEventListener('submit', async (e) => {
+
+    e.preventDefault();
+
+    const booking = {
+
+      datum: form.datum.value,
+      tid: form.tid.value,
+      ryttartyp: form.ryttartyp.value,
+      namn: form.namn.value,
+      telefon: form.telefon.value,
+      epost: form.epost.value,
+      meddelande: form.meddelande.value
+
+    };
+
+    try {
+
+      const { data: existing, error: checkError } =
+      await supabase
+      .from('ridhus_bokningar')
+      .select('id')
+      .eq('datum', booking.datum)
+      .eq('tid', booking.tid);
+
+      if(checkError){
+        console.error(checkError);
+        alert('Kunde inte kontrollera bokningen.');
+        return;
+      }
+
+      if(existing.length > 0){
+        alert('Denna tid är redan bokad.');
+        return;
+      }
+
+      const { error } =
+      await supabase
+      .from('ridhus_bokningar')
+      .insert([booking]);
+
+      if(error){
+        console.error(error);
+        alert('Ett fel uppstod när bokningen sparades.');
+        return;
+      }
+
+      alert('✅ Bokningen sparades!');
+
+      form.reset();
+
+    } catch(err){
+
+      console.error(err);
+
+      alert(
+        'Ett oväntat fel uppstod.'
+      );
+
+    }
+
+  });
+
+});
 
 </script>
 
