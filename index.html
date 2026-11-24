@@ -22,7 +22,16 @@
     margin-bottom:25px;
     box-shadow:0 6px 20px rgba(0,0,0,.15);
 }
+.occupancy-card{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+}
 
+.occupancy-card h3{
+    margin:0;
+}
 .status-dot{
     width:14px;
     height:14px;
@@ -502,10 +511,15 @@ Exklusiv inackordering, träning och utbildning i en naturnära miljö där häs
 
 <!-- STATS -->
 
-<section class="stats">
-<div class="container">
-
 <div class="stat-grid">
+
+<div class="stat-card occupancy-card">
+
+<span class="status-dot"></span>
+
+<h3>Lediga stallplatser</h3>
+
+</div>
 
 <div class="stat-card">
 <h3>🐴 Hästvälfärd</h3>
@@ -521,8 +535,6 @@ Exklusiv inackordering, träning och utbildning i en naturnära miljö där häs
 
 <div class="stat-card">
 <h3>📍 Norrköping</h3>
-</div>
-
 </div>
 
 </div>
