@@ -165,6 +165,26 @@ grid-template-columns:repeat(4,1fr);
 gap:20px;
 }
 
+@media(max-width:768px){
+
+.stat-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.gallery{
+    grid-template-columns:1fr;
+}
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+.hero-buttons .btn{
+    width:100%;
+}
+
+}
+
 .stat-card{
 background:rgba(255,255,255,.05);
 backdrop-filter:blur(15px);
