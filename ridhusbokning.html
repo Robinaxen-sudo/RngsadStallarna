@@ -50,7 +50,21 @@ h1{
 .slot:hover{
     transform:translateY(-2px);
 }
+.selected-time{
+    margin-top:25px;
+    text-align:center;
+    font-size:1.1rem;
+}
 
+#selectedTime{
+    color:#D4AF37;
+    font-weight:700;
+}
+.slot.selected{
+    background:#D4AF37;
+    color:#111;
+    border-color:#D4AF37;
+}
 </style>
 </head>
 
@@ -88,6 +102,29 @@ Ingen tid vald
 </div>
 
 </div>
+<script>
 
+const slots = document.querySelectorAll('.slot');
+const selectedTime = document.getElementById('selectedTime');
+
+slots.forEach(slot => {
+
+    slot.addEventListener('click', () => {
+
+        slots.forEach(s => {
+            s.classList.remove('selected');
+        });
+
+        slot.classList.add('selected');
+
+        selectedTime.textContent =
+            slot.textContent.trim();
+
+    });
+
+});
+
+</script>
+    
 </body>
 </html>
