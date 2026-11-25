@@ -313,25 +313,24 @@ alert('Boka-knappen fungerar');
 });
 
 </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-const supabaseUrl =
+<script>
+
+const supabaseUrl         =
 'https://demanqazbewubywncgst.supabase.co';
 
 const supabaseKey =
 'sb_publishable_asApF37M5MQuVdovd5aKyw_X_lOPqMT';
 
-const { createClient } = supabase;
+const { createClient } = window.supabase;
 
-const db = createClient(
-  supabaseUrl,
-  supabaseKey
-);
+const supabase = createClient(
+    supabaseUrl,
+    supabaseKey
+);    
 
-    console.log("Supabase-klient:", supabase);
-console.log("Typ:", typeof supabase);
 console.log("Supabase-klient:", supabase);
 
 </script>
