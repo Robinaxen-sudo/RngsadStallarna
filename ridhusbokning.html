@@ -311,10 +311,14 @@ alert('Boka-knappen fungerar');
 
     };
 
-    const { error } =
-    await supabase
-        .from('ridhus_bokningar')
-        .insert([bokning]);
+    console.log("Ska spara:", bokning);
+
+const result =
+await supabase
+ .from('ridhus_bokningar')
+ .insert([bokning]);
+
+console.log(result);
 
     if(error){
 
