@@ -332,10 +332,10 @@ document
 
     };
 
-    const { error } =
-    await db
-        .from('ridhus_bokningar')
-        .insert([bokning]);
+const { error } =
+await db
+    .from('RIDHUS_BOKNINGAR')
+    .insert([bokning]);
 
 if(error){
 
