@@ -202,8 +202,24 @@ BOKA RIDHUSET
 
 </form>
 </div>
-<script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+<script>
+const supabaseUrl =
+'https://demanqazbewubywncgst.supabase.co';
+
+const supabaseKey =
+'sb_publishable_asApF37M5MQuVdovd5aKyw_X_lOPqMT';
+
+const { createClient } = window.supabase;
+
+const supabase = createClient(
+ supabaseUrl,
+ supabaseKey
+);
+
+console.log("Supabase-klient:", supabase);
 const slots = document.querySelectorAll('.slot');
 const selectedTime = document.getElementById('selectedTime');
 
