@@ -323,11 +323,13 @@ const supabaseUrl =
 const supabaseKey =
 'sb_publishable_asApF37M5MQuVdovd5aKyw_X_lOPqMT';
 
-const supabase =
-window.supabase.createClient(
-    supabaseUrl,
-    supabaseKey
+const { createClient } = supabase;
+
+const db = createClient(
+  supabaseUrl,
+  supabaseKey
 );
+
 
 </script>
     
