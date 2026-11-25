@@ -181,8 +181,11 @@ slots.forEach(slot => {
 
         slot.classList.add('selected');
 
-        selectedTime.textContent =
-            slot.textContent.trim();
+const tid = slot.textContent.trim();
+
+selectedTime.textContent = tid;
+
+document.getElementById('valdTid').value = tid;
 
     });
 
