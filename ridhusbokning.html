@@ -191,6 +191,22 @@ document.getElementById('valdTid').value = tid;
 
 });
 
+    const bookingDate =
+document.getElementById('bookingDate');
+
+const idag = new Date();
+
+const maxDatum = new Date();
+maxDatum.setDate(idag.getDate() + 7);
+
+const formatDate = (date) => {
+    return date.toISOString().split('T')[0];
+};
+
+bookingDate.min = formatDate(idag);
+bookingDate.max = formatDate(maxDatum);
+bookingDate.value = formatDate(idag);
+
 </script>
 
     
