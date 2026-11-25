@@ -65,6 +65,43 @@ h1{
     color:#111;
     border-color:#D4AF37;
 }
+    form{
+    display:grid;
+    gap:15px;
+    margin-top:30px;
+}
+
+form select,
+form input,
+form textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#222;
+    color:#fff;
+    font-size:1rem;
+}
+
+form textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+form button{
+    background:#D4AF37;
+    color:#111;
+    border:none;
+    border-radius:12px;
+    padding:15px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+form button:hover{
+    opacity:.9;
+}
+
 </style>
 </head>
 
@@ -76,6 +113,35 @@ Vald tid:
 <span id="selectedTime">
 Ingen tid vald
 </span>
+    <h2>Boka ridhuset</h2>
+<form id="bookingForm">
+    
+<input
+type="text"
+id="valdTid"
+placeholder="Välj en tid ovan"
+readonly>
+    
+<select id="ryttartyp" required>
+    <option value="">Kategori</option>
+    <option>Inackorderad</option>
+    <option>Extern ryttare</option>
+</select>
+
+<input type="text" id="namn" placeholder="Namn" required>
+
+<input type="tel" id="telefon" placeholder="Telefon" required>
+
+<input type="email" id="epost" placeholder="E-post" required>
+
+<textarea id="meddelande"
+placeholder="Övrig information"></textarea>
+
+<button type="submit">
+Boka ridhuset
+</button>
+
+</form>
 
 </div>
 <div class="container">
