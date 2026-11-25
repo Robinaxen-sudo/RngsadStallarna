@@ -218,12 +218,12 @@ const supabaseKey =
 
 const { createClient } = window.supabase;
 
-const supabase = createClient(
-    supabaseUrl,
-    supabaseKey
+const db = createClient(
+ supabaseUrl,
+ supabaseKey
 );
 
-console.log("Supabase-klient:", supabase);
+console.log("Supabase-klient:", db);
     
 const slots = document.querySelectorAll('.slot');
 const selectedTime = document.getElementById('selectedTime');
@@ -313,8 +313,8 @@ alert('Boka-knappen fungerar');
 
     console.log("Ska spara:", bokning);
 
-const result =
-await supabase
+const { error } =
+await db
  .from('ridhus_bokningar')
  .insert([bokning]);
 
