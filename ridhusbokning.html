@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ridhusbokning | RingstadStallarna</title>
+<title>RIDHUSBOKNING| RingstadStallarna</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -130,13 +130,13 @@ form button:hover{
 Vald tid:
 
 <span id="selectedTime">
-Ingen tid vald
+Ingen tid vald! Välj en tid.
 </span>
 
 </div>
 <div class="container">
 
-<h1>Ridhusbokning</h1>
+<h1>RIDHUSBOKNING</h1>
     
 <div class="times">
 <div class="slot">08:00 - 09:00</div>
@@ -159,11 +159,12 @@ Ingen tid vald
 <h3 class="date-title">
 
 <p class="booking-note">
-<b>Externa ryttare</b> kan boka upp till 7-dagar framåt. <b>Inackorderade</b> kan boka upp till 14-dagar framåt.<br>
-    (Ska du Boka som inackorderare ska du först välja ryttartyp: inackorderare och sedan: Datum).<br>
+<b>EXTERNA RYTTARE</b> kan boka upp till <b>7-dagar</b> framåt. <b>INACKORDERADE</b> kan boka upp till <b>14-dagar</b> framåt.<br>
+    <br>
+    (Ska du BOKA som INACKORDERARE ska du först välja <B>RYTTARTYP:</B> inackorderare och sedan: Datum).<br>
 </p>
 
-Välj datum
+Välj Datum
 </h3>
 
 <input type="date" id="bookingDate">
@@ -178,11 +179,11 @@ readonly>
     
 <select id="ryttartyp" required>
 
- <option value="">Ryttartyp</option>
+ <option value="">RYTTARTYP</option>
 
- <option value="inackorderad">Inackorderad</option>
+ <option value="inackorderad">INACKORDERAD</option>
 
- <option value="extern">Extern ryttare</option>
+ <option value="extern">EXTERN RYTTARE</option>
 
 </select>
 
@@ -196,7 +197,7 @@ readonly>
 placeholder="Övrig information"></textarea>
 
 <button type="submit">
-Boka ridhuset
+BOKA RIDHUSET
 </button>
 
 </form>
@@ -304,21 +305,19 @@ alert('Boka-knappen fungerar');
 
         return;
 
-    }
+    }    
 
     alert(
-        '✅ Bokningen är registrerad!'
+        '✅ BOKNINGEN ÄR REGISTRERAD!'
     );
 
 });
-
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-const supabaseUrl         =
+const supabaseUrl =
 'https://demanqazbewubywncgst.supabase.co';
 
 const supabaseKey =
@@ -327,9 +326,9 @@ const supabaseKey =
 const { createClient } = window.supabase;
 
 const supabase = createClient(
-    supabaseUrl,
-    supabaseKey
-);    
+ supabaseUrl,
+ supabaseKey
+);
 
 console.log("Supabase-klient:", supabase);
 
