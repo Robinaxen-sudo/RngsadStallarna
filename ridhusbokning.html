@@ -154,8 +154,8 @@ Ingen tid vald
 <div class="slot">18:00 - 19:00</div>
 <div class="slot">19:00 - 20:00</div><h3 class="date-title">
 
-    <p class="booking-note">
-Ridhustider kan bokas upp till 7 dagar framåt!
+<p class="booking-note">
+<b>Externa ryttare</b> kan boka upp till 7-dagar framåt. <b>Inackorderade</b> kan boka upp till 14-dagar framåt.
 </p>
 
 Välj datum
@@ -173,9 +173,13 @@ placeholder="Välj en tid ovan"
 readonly>
     
 <select id="ryttartyp" required>
-    <option value="">Kategori</option>
-    <option>Inackorderad</option>
-    <option>Extern ryttare</option>
+
+ <option value="">Kategori</option>
+
+ <option value="inackorderad">Inackorderad</option>
+
+ <option value="extern">Extern ryttare</option>
+
 </select>
 
 <input type="text" id="namn" placeholder="Namn" required>
@@ -224,8 +228,34 @@ console.log(bookingDate);
 
 const idag = new Date();
 
-const maxDatum = new Date();
+let maxDatum = new Date();
 maxDatum.setDate(idag.getDate() + 7);
+
+const ryttartyp =
+document.getElementById('ryttartyp');
+
+ryttartyp.addEventListener('change', () => {
+
+    maxDatum = new Date();
+
+    if(ryttartyp.value === 'inackorderad'){
+
+        maxDatum.setDate(
+            idag.getDate() + 14
+        );
+
+    } else {
+
+        maxDatum.setDate(
+            idag.getDate() + 7
+        );
+
+    }
+
+    bookingDate.max =
+        formatDate(maxDatum);
+
+});
 
 const formatDate = (date) => {
     return date.toISOString().split('T')[0];
