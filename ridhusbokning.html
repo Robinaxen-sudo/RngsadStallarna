@@ -306,16 +306,54 @@ ryttartyp.addEventListener('change', () => {
 
 document
 .getElementById('bookingForm')
-.addEventListener('submit', (e) => {
+.addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
+    const bokning = {
+
+        datum: bookingDate.value,
+
+        tid: valdTid.value,
+
+        ryttartyp: ryttartyp.value,
+
+        namn:
+        document.getElementById('namn').value,
+
+        telefon:
+        document.getElementById('telefon').value,
+
+        epost:
+        document.getElementById('epost').value,
+
+        meddelande:
+        document.getElementById('meddelande').value
+
+    };
+
+    const { error } =
+    await db
+        .from('ridhus_bokningar')
+        .insert([bokning]);
+
+    if(error){
+
+        console.error(error);
+
+        alert(
+            'Kunde inte spara bokningen.'
+        );
+
+        return;
+
+    }
+
     alert(
-        'Steg 1 klart! Formuläret fungerar.'
+        '✅ Bokningen är registrerad!'
     );
 
 });
-
 </script>
 
 </body>
