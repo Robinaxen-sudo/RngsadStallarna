@@ -337,17 +337,17 @@ document
         .from('ridhus_bokningar')
         .insert([bokning]);
 
-    if(error){
+if(error){
 
-        console.error(error);
+    console.error(error);
 
-        alert(
-            'Kunde inte spara bokningen.'
-        );
+    alert(
+        error.message
+    );
 
-        return;
+    return;
 
-    }
+}
 
     alert(
         '✅ Bokningen är registrerad!'
