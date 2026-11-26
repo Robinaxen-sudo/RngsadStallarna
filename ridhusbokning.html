@@ -281,7 +281,10 @@ document.getElementById('valdTid');
 slots.forEach(slot => {
 
     slot.addEventListener('click', () => {
-
+if (slot.classList.contains('booked')) {
+    alert('Denna tid är redan bokad. Välj en annan tid.');
+    return;
+}
         slots.forEach(s =>
             s.classList.remove('selected')
         );
