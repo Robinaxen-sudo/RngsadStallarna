@@ -262,7 +262,9 @@ const supabase = createClient(
 );
 
 console.log("Supabase-klient:", supabase);
-    
+    console.log("Typ:", typeof supabase);
+console.log("From:", supabase.from);
+
 const slots = document.querySelectorAll('.slot');
 const selectedTime = document.getElementById('selectedTime');
 
