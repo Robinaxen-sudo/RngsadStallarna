@@ -251,7 +251,25 @@ slots.forEach(slot => {
 
     }
 
-    slot.addEventListener('click', valjTid);
+    function valjTid(){
+
+    slots.forEach(s => {
+        s.classList.remove('selected');
+    });
+
+    slot.classList.add('selected');
+
+    const tid = slot.textContent.trim();
+
+    selectedTime.textContent = tid;
+
+    document.getElementById('valdTid').value = tid;
+
+}
+
+slot.addEventListener('click', valjTid);
+slot.addEventListener('touchstart', valjTid);
+
     slot.addEventListener('touchstart', valjTid);
 
 });
