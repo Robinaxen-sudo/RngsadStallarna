@@ -380,14 +380,26 @@ if(error){
 
     console.error(error);
 
-    alert(
-        error.message
-    );
+    if(
+        error.message.includes('duplicate') ||
+        error.message.includes('unique')
+    ){
+
+        alert(
+            '⛔ Den valda tiden är redan bokad. Välj en annan tid.'
+        );
+
+    } else {
+
+        alert(
+            '⚠️ Bokningen kunde inte sparas. Försök igen.'
+        );
+
+    }
 
     return;
 
 }
-
     alert(
         '✅ Bokningen är registrerad!'
     );
