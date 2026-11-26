@@ -235,34 +235,27 @@ const selectedTime = document.getElementById('selectedTime');
 
 slots.forEach(slot => {
 
+    function valjTid() {
 
+        slots.forEach(s => {
+            s.classList.remove('selected');
+        });
 
-    function valjTid(){
+        slot.classList.add('selected');
 
-    slots.forEach(s => {
-        s.classList.remove('selected');
-    });
+        const tid = slot.textContent.trim();
 
-    slot.classList.add('selected');
+        selectedTime.textContent = tid;
 
-    const tid = slot.textContent.trim();
+        document.getElementById('valdTid').value = tid;
 
-    selectedTime.textContent = tid;
+    }
 
-    document.getElementById('valdTid').value = tid;
-
-}
-
-slot.addEventListener('click', valjTid);
-slot.addEventListener('touchstart', valjTid);
-
+    slot.addEventListener('click', valjTid);
     slot.addEventListener('touchstart', valjTid);
 
 });
 
-    });
-
-});
 
     const bookingDate =
 document.getElementById('bookingDate');
