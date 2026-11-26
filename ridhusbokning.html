@@ -212,23 +212,48 @@ createClient(
 );
 
 console.log('Supabase ansluten');
-    async function hamtaBokningar() {
+async function hamtaBokningar() {
 
- const { data, error } =
- await supabase
- .from('ridhus_bokningar')
- .select('*');
+    const valtDatum = bookingDate.value;
 
- if(error){
+    const { data, error } = await db
+        .from('RIDHUS_BOKNINGAR')
+        .select('*')
+        .eq('datum', valtDatum);
 
-  console.error(error);
-  return;
+    if(error){
+        console.error(error);
+        return;
+    }
 
- }
+    slots.forEach(slot => {
+        slot.style.background = '';
+        slot.style.borderColor = '';
+        slot.style.color = '';
+        slot.classList.remove('booked');
+    });
 
- console.log('Bokningar:', data);
+    data.forEach(bokning => {
+
+        slots.forEach(slot => {
+
+            if(slot.textContent === bokning.tid){
+
+                slot.style.background = '#7f1d1d';
+                slot.style.borderColor = '#ef4444';
+                slot.style.color = '#ffffff';
+                slot.classList.add('booked');
+
+            }
+
+        });
+
+    });
 
 }
+    bookingDate.addEventListener('change', () => {
+    hamtaBokningar();
+});
 const timesContainer =
 document.getElementById('times');
 
