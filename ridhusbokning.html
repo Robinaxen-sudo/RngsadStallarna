@@ -290,7 +290,27 @@ const formatDate = (date) => {
 bookingDate.min = formatDate(idag);
 bookingDate.max = formatDate(maxDatum);
 bookingDate.value = formatDate(idag);
+  
+async function hamtaBokningar() {
 
+    const { data, error } =
+    await supabase
+        .from('ridhus_bokningar')
+        .select('*');
+
+    if(error){
+
+        console.error(error);
+        return;
+
+    }
+
+    console.log(
+        'Bokningar:',
+        data
+    );
+
+}
 const bookingForm =
 document.getElementById('bookingForm');
 
@@ -333,6 +353,7 @@ alert('Boka-knappen fungerar');
     );
 
 });
+  hamtaBokningar();
     </script>
 </body>
 </html>
