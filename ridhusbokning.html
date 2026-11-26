@@ -214,18 +214,17 @@ createClient(
 console.log('Supabase ansluten');
     async function hamtaBokningar() {
 
-  const { data, error } = await supabase
-    .from('ridhus_bokningar')
-    .select('*');
+ const { data, error } =
+ await supabase
+ .from('ridhus_bokningar')
+ .select('*');
 
-  if(error){
-    console.error(error);
-    return;
-  }
+ if(error){
 
-  console.log('Bokningar:', data);
+  console.error(error);
+  return;
 
-}
+ }
 
  console.log('Bokningar:', data);
 
