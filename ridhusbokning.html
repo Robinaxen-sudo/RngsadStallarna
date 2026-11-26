@@ -229,8 +229,8 @@ for(let h=5; h<22; h++){
     slot.className =
     'slot';
 
-    slot.textContent =
-    `${String(h).padStart(2,'0')}:00 - ${String(h+1).padStart(2,'0')}:00`;
+ slot.textContent =
+`${String(h).padStart(2,'0')}:00 - ${String(h+1).padStart(2,'0')}:00`;
 
     timesContainer.appendChild(slot);
 
@@ -330,62 +330,6 @@ async function hamtaBokningar() {
         .select('*')
         .eq('datum', valtDatum);
 
-    if(error){
-
-        console.error(error);
-        return;
-
-    }
-
-    data.forEach(bokning => {
-
-        document
-        .querySelectorAll('.slot')
-        .forEach(slot => {
-
-            if(
-                slot.textContent.trim() ===
-                bokning.tid
-            ){
-
-                slot.classList.add('booked');
-
-            }
-
-        });
-
-    });
-
-}
-
-
-    if(error){
-
-        console.error(error);
-        return;
-
-    }
-
-    data.forEach(bokning => {
-
-        document
-        .querySelectorAll('.slot')
-        .forEach(slot => {
-
-            if(
-                slot.textContent.trim() ===
-                bokning.tid
-            ){
-
-                slot.classList.add('booked');
-
-            }
-
-        });
-
-    });
-
-}
 document
 .getElementById('bookingForm')
 .addEventListener('submit', async (e) => {
