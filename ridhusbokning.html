@@ -212,6 +212,23 @@ createClient(
 );
 
 console.log('Supabase ansluten');
+    async function hamtaBokningar() {
+
+ const { data, error } =
+ await supabase
+ .from('ridhus_bokningar')
+ .select('*');
+
+ if(error){
+
+  console.error(error);
+  return;
+
+ }
+
+ console.log('Bokningar:', data);
+
+}
 const timesContainer =
 document.getElementById('times');
 
@@ -352,6 +369,7 @@ if(error){
 window.location.href = 'Tack.html';
 
 });
+    hamtaBokningar();
 </script>
 
 </body>
