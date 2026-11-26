@@ -230,7 +230,7 @@ const selectedTime = document.getElementById('selectedTime');
 
 slots.forEach(slot => {
 
-    slot.addEventListener('click', () => {
+    function valjTid() {
 
         slots.forEach(s => {
             s.classList.remove('selected');
@@ -238,11 +238,18 @@ slots.forEach(slot => {
 
         slot.classList.add('selected');
 
-const tid = slot.textContent.trim();
+        const tid = slot.textContent.trim();
 
-selectedTime.textContent = tid;
+        selectedTime.textContent = tid;
 
-document.getElementById('valdTid').value = tid;
+        document.getElementById('valdTid').value = tid;
+
+    }
+
+    slot.addEventListener('click', valjTid);
+    slot.addEventListener('touchstart', valjTid);
+
+});
 
     });
 
