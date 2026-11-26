@@ -251,9 +251,6 @@ async function hamtaBokningar() {
     });
 
 }
-    bookingDate.addEventListener('change', () => {
-    hamtaBokningar();
-});
 const timesContainer =
 document.getElementById('times');
 
@@ -306,7 +303,10 @@ document.getElementById('bookingDate');
 
 const ryttartyp =
 document.getElementById('ryttartyp');
-
+    
+    bookingDate.addEventListener('change', () => {
+    hamtaBokningar();
+});
 const idag =
 new Date();
 
