@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ridhusbokning | RingstadStallarna</title>
+<title>RIDHUSBOKNING| RingstadStallarna</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -31,9 +31,9 @@ h1{
 
 .times{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
     gap:12px;
-    margin-top:20px;
+    margin-top:30px;
 }
 
 .slot{
@@ -50,22 +50,9 @@ h1{
 .slot:hover{
     transform:translateY(-2px);
 }
-
-.slot.selected{
-    background:#D4AF37;
-    color:#111;
-    border-color:#D4AF37;
-}
-
-.slot.booked{
-    background:#dc2626;
-    color:white;
-    border-color:#dc2626;
-    cursor:not-allowed;
-}
 .selected-time{
+    margin-top:25px;
     text-align:center;
-    margin:25px 0;
     font-size:1.1rem;
 }
 
@@ -73,122 +60,144 @@ h1{
     color:#D4AF37;
     font-weight:700;
 }
-
-.booking-note{
-    text-align:center;
-    color:#9c9c9c;
-    line-height:1.6;
-    margin:15px 0;
+.slot.selected{
+    background:#D4AF37;
+    color:#111;
+    border-color:#D4AF37;
+}
+    form{
+    display:grid;
+    gap:15px;
+    margin-top:30px;
 }
 
-#bookingDate{
+form select,
+form input,
+form textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#222;
+    color:#fff;
+    font-size:1rem;
+}
+
+form textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+form button{
+    background:#D4AF37;
+    color:#111;
+    border:none;
+    border-radius:12px;
+    padding:15px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+form button:hover{
+    opacity:.9;
+}
+    #bookingDate{
     width:100%;
     padding:18px;
     background:#1f1f1f;
     color:#D4AF37;
     border:1px solid rgba(212,175,55,.25);
     border-radius:16px;
-    font-size:1rem;
+    font-size:1.1rem;
+    margin:25px 0;
     box-sizing:border-box;
 }
 
-#bookingDate::-webkit-calendar-picker-indicator{
-    filter:invert(1);
-    cursor:pointer;
-}
-
-form{
-    display:grid;
-    gap:15px;
-    margin-top:25px;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    padding:15px;
-    background:#222;
-    color:#fff;
-    border:none;
-    border-radius:12px;
-    box-sizing:border-box;
-}
-
-textarea{
-    min-height:120px;
-}
-
-button{
-    background:#D4AF37;
-    color:#111;
-    border:none;
-    padding:15px;
-    border-radius:12px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:.9;
+    .booking-note{
+    text-align:center;
+    color:#9c9c9c;
+    font-size:0.9rem;
+    margin:15px 0;
+    line-height:1.4;
 }
 
 </style>
 </head>
-<body>
 
+<body>
+<div class="selected-time">
+
+Vald tid:
+
+<span id="selectedTime">
+Ingen tid vald! Välj en tid.
+</span>
+
+</div>
 <div class="container">
 
 <h1>RIDHUSBOKNING</h1>
+    
+<div class="times"> 
+<div class="slot">05:00 - 06:00</div>
+<div class="slot">06:00 - 07:00</div>
+<div class="slot">07:00 - 08:00</div>
+<div class="slot">08:00 - 09:00</div>
+<div class="slot">09:00 - 10:00</div>
+<div class="slot">10:00 - 11:00</div>
+    
+<div class="slot">11:00 - 12:00</div>
+<div class="slot">12:00 - 13:00</div>
+<div class="slot">13:00 - 14:00</div>
+<div class="slot">14:00 - 15:00</div>
+<div class="slot">15:00 - 16:00</div>
 
-<div class="times" id="times"></div>
+<div class="slot">16:00 - 17:00</div>
+<div class="slot">17:00 - 18:00</div>
+<div class="slot">18:00 - 19:00</div>
+<div class="slot">19:00 - 20:00</div>
+<div class="slot">20:00 - 21:00</div>
+<div class="slot">21:00 - 22:00</div>
+</div>
+
+<h3 class="date-title">
 
 <p class="booking-note">
-<b>EXTERNA RYTTARE</b> kan boka upp till <b>7 dagar</b> framåt.<br>
-<b>INACKORDERADE</b> kan boka upp till <b>14 dagar</b> framåt.
+<b>EXTERNA RYTTARE</b> kan boka upp till <b>7-dagar</b> framåt. <b>INACKORDERADE</b> kan boka upp till <b>14-dagar</b> framåt.<br>
+    <br>
+    (Ska du BOKA som INACKORDERARE ska du först välja <B>RYTTARTYP:</B> inackorderare och sedan: Datum).<br>
 </p>
+
+Välj Datum
+</h3>
 
 <input type="date" id="bookingDate">
 
-<div class="selected-time">
-Vald tid:
-<span id="selectedTime">Ingen tid vald</span>
-</div>
-
 <form id="bookingForm">
-
+    
 <input
 type="text"
 id="valdTid"
 placeholder="Välj en tid ovan"
 readonly>
-
+    
 <select id="ryttartyp" required>
-    <option value="">RYTTARTYP</option>
-    <option value="inackorderad">INACKORDERAD</option>
-    <option value="extern">EXTERN RYTTARE</option>
+
+ <option value="">RYTTARTYP</option>
+
+ <option value="inackorderad">INACKORDERAD</option>
+
+ <option value="extern">EXTERN RYTTARE</option>
+
 </select>
 
-<input
-type="text"
-id="namn"
-placeholder="Namn"
-required>
+<input type="text" id="namn" placeholder="Namn" required>
 
-<input
-type="tel"
-id="telefon"
-placeholder="Telefon"
-required>
+<input type="tel" id="telefon" placeholder="Telefon" required>
 
-<input
-type="email"
-id="epost"
-placeholder="E-post"
-required>
+<input type="email" id="epost" placeholder="E-post" required>
 
-<textarea
-id="meddelande"
+<textarea id="meddelande"
 placeholder="Övrig information"></textarea>
 
 <button type="submit">
@@ -196,7 +205,6 @@ BOKA RIDHUSET
 </button>
 
 </form>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -208,193 +216,123 @@ const supabaseUrl =
 const supabaseKey =
 'sb_publishable_asApF37M5MQuVdovd5aKyw_X_lOPqMT';
 
-const { createClient } =
-window.supabase;
+const { createClient } = window.supabase;
 
-const db =
-createClient(
+const supabase = createClient(
     supabaseUrl,
     supabaseKey
 );
 
-console.log('Supabase ansluten');
-const timesContainer =
-document.getElementById('times');
-
-for(let h=5; h<22; h++){
-
-    const slot =
-    document.createElement('div');
-
-    slot.className =
-    'slot';
-
-slot.textContent =
-`${String(h).padStart(2,'0')}:00 - ${String(h+1).padStart(2,'0')}:00`;
-
-    timesContainer.appendChild(slot);
-
-}
-
-const slots =
-document.querySelectorAll('.slot');
-
-const selectedTime =
-document.getElementById('selectedTime');
-
-const valdTid =
-document.getElementById('valdTid');
+console.log("Supabase-klient:", supabase);
+    
+const slots = document.querySelectorAll('.slot');
+const selectedTime = document.getElementById('selectedTime');
 
 slots.forEach(slot => {
 
     slot.addEventListener('click', () => {
 
-        slots.forEach(s =>
-            s.classList.remove('selected')
-        );
+        slots.forEach(s => {
+            s.classList.remove('selected');
+        });
 
         slot.classList.add('selected');
 
-        selectedTime.textContent =
-        slot.textContent;
+const tid = slot.textContent.trim();
 
-        valdTid.value =
-        slot.textContent;
+selectedTime.textContent = tid;
+
+document.getElementById('valdTid').value = tid;
 
     });
 
 });
 
-const bookingDate =
+    const bookingDate =
 document.getElementById('bookingDate');
+console.log(bookingDate);
+
+const idag = new Date();
+
+let maxDatum = new Date();
+maxDatum.setDate(idag.getDate() + 7);
 
 const ryttartyp =
 document.getElementById('ryttartyp');
 
-const idag =
-new Date();
-
-function formatDate(date){
-    return date
-        .toISOString()
-        .split('T')[0];
-}
-
-bookingDate.min =
-formatDate(idag);
-
-bookingDate.value =
-formatDate(idag);
-bookingDate.addEventListener(
-    'change',
-    hamtaBokningar
-);
-
 ryttartyp.addEventListener('change', () => {
 
-    const maxDatum =
-    new Date();
+    maxDatum = new Date();
 
-    if(
-        ryttartyp.value ===
-        'inackorderad'
-    ){
+    if(ryttartyp.value === 'inackorderad'){
+
         maxDatum.setDate(
             idag.getDate() + 14
         );
-    }
-    else{
+
+    } else {
+
         maxDatum.setDate(
             idag.getDate() + 7
         );
+
     }
 
     bookingDate.max =
-    formatDate(maxDatum);
+        formatDate(maxDatum);
 
 });
-async function hamtaBokningar() {
 
-    document
-        .querySelectorAll('.slot')
-        .forEach(slot => {
-            slot.classList.remove('booked');
-        });
+const formatDate = (date) => {
+    return date.toISOString().split('T')[0];
+};
 
-    const valtDatum =
-        bookingDate.value;
+bookingDate.min = formatDate(idag);
+bookingDate.max = formatDate(maxDatum);
+bookingDate.value = formatDate(idag);
 
-    const { data, error } =
-    await db
-        .from('RIDHUS_BOKNINGAR')
-        .select('*')
-        .eq('datum', valtDatum);
+const bookingForm =
+document.getElementById('bookingForm');
 
-document
-.getElementById('bookingForm')
-.addEventListener('submit', async (e) => {
-
+bookingForm.addEventListener('submit', async (e) => {
+alert('Boka-knappen fungerar');
+    console.log('Submit startar');
     e.preventDefault();
 
     const bokning = {
 
         datum: bookingDate.value,
-
-        tid: valdTid.value,
-
-        ryttartyp: ryttartyp.value,
-
-        namn:
-        document.getElementById('namn').value,
-
-        telefon:
-        document.getElementById('telefon').value,
-
-        epost:
-        document.getElementById('epost').value,
-
-        meddelande:
-        document.getElementById('meddelande').value
+        tid: document.getElementById('valdTid').value,
+        ryttartyp: document.getElementById('ryttartyp').value,
+        namn: document.getElementById('namn').value,
+        telefon: document.getElementById('telefon').value,
+        epost: document.getElementById('epost').value,
+        meddelande: document.getElementById('meddelande').value
 
     };
 
-const { error } =
-await db
-    .from('RIDHUS_BOKNINGAR')
-    .insert([bokning]);
+    const { error } =
+    await supabase
+        .from('ridhus_bokningar')
+        .insert([bokning]);
 
-if(error){
+    if(error){
 
-    console.error(error);
-
-    if(
-        error.message.includes('duplicate') ||
-        error.message.includes('unique')
-    ){
+        console.error(error);
 
         alert(
-            '⛔ Den valda tiden är redan bokad. Välj en annan tid.'
+            'Kunde inte spara bokningen.'
         );
 
-    } else {
+        return;
 
-        alert(
-            '⚠️ Bokningen kunde inte sparas. Försök igen.'
-        );
+    }    
 
-    }
-
-    return;
-
-}
     alert(
-        '✅ Bokningen är registrerad!'
+        '✅ BOKNINGEN ÄR REGISTRERAD!'
     );
 
 });
-    )
-    hamtaBokningar();
-</script>
-
+    </script>
 </body>
 </html>
