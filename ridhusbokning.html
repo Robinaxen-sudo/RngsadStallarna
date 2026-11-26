@@ -334,8 +334,9 @@ const bookingForm =
 document.getElementById('bookingForm');
 
 bookingForm.addEventListener('submit', async (e) => {
-    });
+
     console.log('Submit startar');
+
     e.preventDefault();
 
     const bokning = {
@@ -365,9 +366,11 @@ bookingForm.addEventListener('submit', async (e) => {
 
         return;
 
-    }    
+    }
 
-window.location.href = 'tack.html';
+    window.location.href = 'tack.html';
+
+});
 
 console.log(
     'Valt datum:',
