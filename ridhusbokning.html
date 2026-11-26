@@ -126,6 +126,20 @@ form button:hover{
     line-height:1.4;
 }
 
+      hamtaBokningar();
+
+    @media (max-width: 768px){
+
+    .times{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .slot{
+        min-height:60px;
+        padding:20px 10px;
+        font-size:0.95rem;
+    }
 </style>
 </head>
 
@@ -344,21 +358,6 @@ console.log(
     bookingDate.value
 );
 });
-
-  hamtaBokningar();
-
-    @media (max-width: 768px){
-
-    .times{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
-
-    .slot{
-        min-height:60px;
-        padding:20px 10px;
-        font-size:0.95rem;
-    }
 
     h1{
         font-size:1.7rem;
