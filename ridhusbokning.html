@@ -57,6 +57,12 @@ h1{
     border-color:#D4AF37;
 }
 
+.slot.booked{
+    background:#dc2626;
+    color:white;
+    border-color:#dc2626;
+    cursor:not-allowed;
+}
 .selected-time{
     text-align:center;
     margin:25px 0;
@@ -303,7 +309,40 @@ ryttartyp.addEventListener('change', () => {
     formatDate(maxDatum);
 
 });
+async function hamtaBokningar() {
 
+    const { data, error } =
+    await db
+        .from('RIDHUS_BOKNINGAR')
+        .select('*');
+
+    if(error){
+
+        console.error(error);
+        return;
+
+    }
+
+    data.forEach(bokning => {
+
+        document
+        .querySelectorAll('.slot')
+        .forEach(slot => {
+
+            if(
+                slot.textContent.trim() ===
+                bokning.tid
+            ){
+
+                slot.classList.add('booked');
+
+            }
+
+        });
+
+    });
+
+}
 document
 .getElementById('bookingForm')
 .addEventListener('submit', async (e) => {
@@ -354,6 +393,7 @@ if(error){
     );
 
 });
+    hamtaBokningar();
 </script>
 
 </body>
