@@ -311,10 +311,49 @@ ryttartyp.addEventListener('change', () => {
 });
 async function hamtaBokningar() {
 
+    document
+        .querySelectorAll('.slot')
+        .forEach(slot => {
+            slot.classList.remove('booked');
+        });
+
+    const valtDatum =
+        bookingDate.value;
+
     const { data, error } =
     await db
         .from('RIDHUS_BOKNINGAR')
-        .select('*');
+        .select('*')
+        .eq('datum', valtDatum);
+
+    if(error){
+
+        console.error(error);
+        return;
+
+    }
+
+    data.forEach(bokning => {
+
+        document
+        .querySelectorAll('.slot')
+        .forEach(slot => {
+
+            if(
+                slot.textContent.trim() ===
+                bokning.tid
+            ){
+
+                slot.classList.add('booked');
+
+            }
+
+        });
+
+    });
+
+}
+
 
     if(error){
 
