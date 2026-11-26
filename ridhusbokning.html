@@ -235,21 +235,7 @@ const selectedTime = document.getElementById('selectedTime');
 
 slots.forEach(slot => {
 
-    function valjTid() {
 
-        slots.forEach(s => {
-            s.classList.remove('selected');
-        });
-
-        slot.classList.add('selected');
-
-        const tid = slot.textContent.trim();
-
-        selectedTime.textContent = tid;
-
-        document.getElementById('valdTid').value = tid;
-
-    }
 
     function valjTid(){
 
