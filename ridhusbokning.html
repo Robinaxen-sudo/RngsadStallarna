@@ -400,7 +400,16 @@ await fetch(
         body: JSON.stringify(bokning)
     }
 );
-
+await fetch(
+    'https://hook.eu1.make.com/6dafd82komd26y6lkz4urslx4zxjv656',
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bokning)
+    }
+);
 window.location.href = 'Tack.html';
 
 });
