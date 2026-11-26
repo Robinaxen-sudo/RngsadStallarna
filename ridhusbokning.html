@@ -226,19 +226,6 @@ console.log('Supabase ansluten');
   console.log('Bokningar:', data);
 
 }
-    async function hamtaBokningar() {
-
- const { data, error } =
- await supabase
- .from('ridhus_bokningar')
- .select('*');
-
- if(error){
-
-  console.error(error);
-  return;
-
- }
 
  console.log('Bokningar:', data);
 
