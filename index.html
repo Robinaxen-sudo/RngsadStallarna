@@ -539,7 +539,7 @@ Ridhusbokning
 
 <span class="status-dot"></span>
 
-<h3>Lediga stallplatser</h3>
+<h3>Lediga Stallplatser - Begränsat antal</h3>
 
 </div>
 
@@ -581,7 +581,7 @@ Ridhusbokning
 <h2>Axén Häst AB</h2>
 
 <p>
-RingstadStallarna är en äldre hästanläggning belägen på Ringstad Gård utanför Norrköping.
+RingstadStallarna är en äldre hästanläggning belägen på Ringstad Gård i Norrköping.
 </p>
 
 <br>
@@ -682,7 +682,7 @@ Utbildning av hästar med hållbar utveckling och framtida prestation i fokus.
 <h2>Intresseanmälan</h2>
 
 <p>
-Är du intresserad av stallplats eller vill veta mer om verksamheten? Skicka en intresseanmälan så återkommer vi till dig.
+Är du intresserad av stallplats eller vill veta mer om verksamheten? <br><br> Skicka en intresseanmälan så återkommer vi till dig.
 </p>
 
 </div>
@@ -730,10 +730,10 @@ Utbildning av hästar med hållbar utveckling och framtida prestation i fokus.
     <select name="inflyttning" required>
         <option value="" selected disabled>Önskad inflyttning</option>
         <option>Omgående</option>
-        <option>Inom 1 månad</option>
+        <option>Inom 2 veckor </option>
+        <option>Inom 1 månader</option>
         <option>Inom 2 månader</option>
         <option>Inom 3 månader</option>
-        <option>Inom 6 månader</option>
         <option>Vet ej ännu</option>
     </select>
 
@@ -779,9 +779,9 @@ Utbildning av hästar med hållbar utveckling och framtida prestation i fokus.
 
 <br>
 
-<p>📞 +46 70 385 01 03</p>
+<p>📞 +46 70 072 84 29</p>
 <p>✉️ Susanne.axen20@gmail.com</p>
-<p>🌐 Webbplats under uppbyggnad</p>
+<p>🌐 https://Ringstadstallarna.se</p>
 
 </div>
 
@@ -800,86 +800,6 @@ Inackordering • Träning • Utbildning
 </div>
 
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">\</script>
-
-<script>
-
-const supabaseUrl =
-'https://demanqazbewubywncgst.supabase.co';
-
-const supabaseKey =
-'sb_publishable_asApF37M5MQuVdovd5aKyw_X_lOPqMT';
-
-const supabase =
-window.supabase.createClient(
-    supabaseUrl,
-    supabaseKey
-);
-
-document
-.getElementById('bookingForm')
-.addEventListener('submit', async (e) => {
-
-    e.preventDefault();
-
-    const form = e.target;
-
-    const booking = {
-
-        datum: form.datum.value,
-        tid: form.tid.value,
-        ryttartyp: form.ryttartyp.value,
-        namn: form.namn.value,
-        telefon: form.telefon.value,
-        epost: form.epost.value,
-        meddelande: form.meddelande.value
-
-    };
-
-    const { data: existing } =
-    await supabase
-    .from('ridhus_bokningar')
-    .select('*')
-    .eq('datum', booking.datum)
-    .eq('tid', booking.tid);
-
-    if(existing.length > 0){
-
-        alert(
-          'Tiden är redan bokad.'
-        );
-
-        return;
-    }
-
-    const { error } =
-    await supabase
-    .from('ridhus_bokningar')
-    .insert([booking]);
-
-    if(error){
-
-        alert(
-          'Ett fel uppstod.'
-        );
-
-        console.error(error);
-
-        return;
-    }
-
-    alert(
-      'Bokningen är registrerad!'
-    );
-
-    form.reset();
-
-});
-
-</script>
-
-
 </script>
 
 </body>
