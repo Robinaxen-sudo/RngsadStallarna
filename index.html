@@ -20,6 +20,7 @@ RingstadStallarna | Inackordering, Träning och Utbildning i Norrköping
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+    
 .occupancy{
     display:inline-flex;
     align-items:center;
@@ -108,7 +109,26 @@ margin:auto;
 }
 
 HERO */
-.hero{
+.hero-divider{
+ width:160px;
+ height:1px;
+ background:#8d8d8d;
+ margin:35px auto;
+ position:relative;
+}
+
+.hero-divider::after{
+ content:"✦";
+ position:absolute;
+ top:-13px;
+ left:50%;
+ transform:translateX(-50%);
+ color:#D4AF37;
+ background:#080808;
+ padding:0 14px;
+ font-size:18px;
+}
+    .hero{
     min-height:100vh;
     display:flex;
     align-items:center;
@@ -531,7 +551,7 @@ height:400px;
 <p>
 Exklusiv inackordering, träning och utbildning i en naturnära miljö där hästens välbefinnande alltid står i centrum.
 </p>
-
+<div class="hero-divider"></div>
 <div class="hero-buttons">
 
 <a href="#intresse" class="btn btn-gold">
