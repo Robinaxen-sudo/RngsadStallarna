@@ -522,7 +522,37 @@ footer{
 
 }
 
+    .social-section{
+  text-align:center;
+  padding:50px 20px;
+}
+
+.social-section h2{
+  color:#d4af37;
+  margin-bottom:20px;
+}
+
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+
+.social-icons a{
+  color:#d4af37;
+  font-size:42px;
+  transition:0.3s;
+}
+
+.social-icons a:hover{
+  color:#f5d76e;
+  transform:scale(1.12);
+}
+
 </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -532,6 +562,24 @@ footer{
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
+
+<section class="social-section">
+    <h2>Följ oss</h2>
+
+    <div class="social-icons">
+        <a href="https://facebook.com/DIN-SIDA" target="_blank" aria-label="Facebook">
+            <img src="facebook-icon.png" alt="Facebook">
+        </a>
+
+        <a href="https://instagram.com/DITT-KONTO" target="_blank" aria-label="Instagram">
+            <img src="instagram-icon.png" alt="Instagram">
+        </a>
+
+        <a href="https://instagram.com/IVONNES-KONTO" target="_blank" aria-label="Ivonnes Instagram">
+            <img src="instagram-icon.png" alt="Ivonnes Instagram">
+        </a>
+    </div>
+</section>
 
 <!-- HERO -->
 
@@ -765,6 +813,7 @@ Utbildning av hästar med hållbar utveckling och framtida prestation i fokus.
         <option>Hingst</option>
         <option>Valack</option>
         <option>Sto</option>
+         <option>Sto & Valack</option>
     </select>
 
     <select name="inflyttning" required>
@@ -831,6 +880,26 @@ Utbildning av hästar med hållbar utveckling och framtida prestation i fokus.
 
 <footer>
 
+<section class="social-section">
+  <h2>Följ oss</h2>
+
+  <div class="social-icons">
+    <a href="https://facebook.com/DIN-SIDA" target="_blank" aria-label="Facebook">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+
+    <a href="https://instagram.com/DITT-KONTO" target="_blank" aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://instagram.com/IVONNES-KONTO" target="_blank" aria-label="Ivonnes Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+</section>
+
+<footer>
+
 <div class="footer-copy">
 © 2026 RINGSTADSTALLARNA
 </div>
@@ -840,6 +909,7 @@ Inackordering • Träning • Utbildning
 </div>
 
 </footer>
+
 </script>
 
 </body>
